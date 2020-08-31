@@ -22,6 +22,8 @@ void display()
 	glFlush();
 }
 
+/*defining the function for keyboard event
+when this function is called, the pressed key and the coordinates of the current mouse position will be passed*/
 void KeyEvent(unsigned char key, int x, int y)
 {
 	if(key) //if any key is pressed
