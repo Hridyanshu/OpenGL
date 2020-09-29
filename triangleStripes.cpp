@@ -3,19 +3,33 @@
 #include<GL/gl.h>
 #include<GL/glu.h>
 #include<GL/glut.h>
+#include<math.h> 
+#define pi 3.142857
 
 void CreateLine(float x1, float y1, float x2, float y2)
 {
 	glBegin(GL_LINES);
-		glVertex2f(x1,y1);
-		glVertex2f(x2,y2);
+	glVertex2f(x1,y1);
+	glVertex2f(x2,y2);
 	glEnd();
-	glFlush();
 }
 
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);	
+	
+	glBegin(GL_POINTS); 
+	float x, y, i;	
+ 	for ( i = 0; i < (2 * pi); i += 0.001) 
+	{ 
+		
+		x = 0.2 * cos(i); 
+		y = 0.2 * sin(i); 
+		
+		glVertex2i(x, y); 
+	} 
+	glEnd();
+
 	
 	CreateLine(-0.5,-0.5,0.5,-0.5);
 	CreateLine(-0.5,-0.5,0.0,0.5);
@@ -53,6 +67,7 @@ void display()
 	CreateLine(0.0,0.2,0.075,0.35);
 	CreateLine(0.0,0.3,0.05,0.4);
 	CreateLine(0.0,0.4,0.025,0.45);
+	glFlush();
 }
 
 int main(int argc, char** argv)
@@ -64,7 +79,7 @@ int main(int argc, char** argv)
 	glutInitWindowPosition(100,200);
 	glutInitWindowSize(1500,1500);
 	glutCreateWindow("Triangle with Stripes");
-	
+
 	glutDisplayFunc(display);
 	
 	glutMainLoop();
