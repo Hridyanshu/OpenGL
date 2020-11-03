@@ -30,3 +30,57 @@ void Grid()
 		glEnd();
 	}	
 }
+
+//jump function
+void Jump(unsigned char key, int a, int b)
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	if(key=='W' || key=='w')
+	{
+		x=x+1;
+		Grid();
+		glBegin(GL_TRIANGLES);
+			glColor3f(1.0,1.0,0.0);
+			glVertex2f(x, y+0.25);
+			glVertex2f(x-0.25, y-0.25);
+			glVertex2f(x+0.25, y-0.25);
+		glEnd(); 
+		glFlush();
+	}
+	else if(key=='A' || key=='a')
+	{
+		y=y-1;
+		Grid();
+		glBegin(GL_TRIANGLES);
+			glColor3f(1.0,1.0,0.0);
+			glVertex2f(x, y+0.25);
+			glVertex2f(x-0.25, y-0.25);
+			glVertex2f(x+0.25, y-0.25);
+		glEnd();
+		glFlush();
+	}
+	else if(key=='S' || key=='s')
+	{
+		x=x-1;
+		Grid();
+		glBegin(GL_TRIANGLES);
+			glColor3f(1.0,1.0,0.0);
+			glVertex2f(x, y+0.25);
+			glVertex2f(x-0.25, y-0.25);
+			glVertex2f(x+0.25, y-0.25);
+		glEnd();
+		glFlush();
+	}
+	else if(key=='D' || key=='d')
+	{	
+		y=y+1;
+		Grid();
+		glBegin(GL_TRIANGLES);
+			glColor3f(1.0,1.0,0.0);
+			glVertex2f(x, y+0.25);
+			glVertex2f(x-0.25, y-0.25);
+			glVertex2f(x+0.25, y-0.25);
+		glEnd();
+		glFlush();
+	}
+}
