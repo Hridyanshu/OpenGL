@@ -100,3 +100,20 @@ void display(void)
 	
 	glFlush();
 }
+
+int main(int argc,char **argv,char **arg)
+{
+	cout<<"Rules of the Game are:\n1. Enter the starting coordinates of your player.\n2. Press 'W' for moving right\n3. Press 'A' for moving down\n4. Press 'S' for moving left\n5. Press 'D' for moving up\n6. Press Q to exit\n";
+	cout<<"Enter the starting coordinates:";
+	cin>>x>>y;
+	glutInit(&argc,argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+	glutInitWindowPosition(500,500);
+	glutInitWindowSize(1000,1000);
+	glutCreateWindow("Jump Game");
+	init();
+	glutDisplayFunc(display);
+	glutKeyboardFunc(Jump);
+	glutMainLoop();
+	return 0;
+}
