@@ -42,3 +42,48 @@ void car(int z) //z is the no of time the function is called
 		glVertex2f(-25+25*(z-1),10);
 	glEnd();
 }
+
+void display()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	//first car
+	car(1);
+	glFlush();
+	
+	sleep(2);
+	
+	//second car
+	glClear(GL_COLOR_BUFFER_BIT);
+	car(2);
+	glFlush();
+	
+	sleep(2);
+	
+	//third car
+	glClear(GL_COLOR_BUFFER_BIT);
+	car(3);
+	glFlush();
+	
+	sleep(2);
+	
+	//fourth car
+	glClear(GL_COLOR_BUFFER_BIT);
+	car(4);
+	glFlush();
+}
+
+int main(int argc, char** argv)
+{ 
+	glutInit(&argc, argv); 
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); 
+	
+	
+	glutInitWindowSize(500, 500); 
+	glutInitWindowPosition(50,50); 
+	
+	glutCreateWindow("Moving Car"); 
+	init(); 
+	glutDisplayFunc(display); 
+	glutMainLoop(); 
+}
